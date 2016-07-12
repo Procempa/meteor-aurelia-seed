@@ -1,0 +1,30 @@
+<template>
+	<form submit.delegate="submit()">
+		<div class="panel panel-default">
+			<div class="panel-heading">Form exemplo</div>
+			<div class="panel-body">
+
+				<div class="form-group">
+					<label for="inputExemplo1">Input exemplo 1: </label>
+					<input id="inputExemplo1" class="form-control" value.bind="inputExemplo1">
+				</div>
+
+				<div class="form-group ${inputExemplo2 ? '' : 'has-error' }">
+					<label for="inputExemplo2">Input exemplo 2: </label>
+					<input id="inputExemplo2" class="form-control" value.bind="inputExemplo2" required>
+				</div>
+
+				<div class="form-group">
+					<label for="selectExemplo">Select exemplo: </label>
+					<select id="selectExemplo" class="form-control" value.bind="selectExemplo">
+						<option></option>
+						<option repeat.for="option of exemploSelectData" model.bind="option">${option.key}</option>
+					</select>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-default right-align">Submit</button>
+		</div>
+	</form>
+
+</template>

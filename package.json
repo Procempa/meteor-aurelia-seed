@@ -1,0 +1,27 @@
+{
+  "name": "celic.requisicoesdeservico",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "postinstall": "meteor node private/post-install.js"
+  },
+  "dependencies": {
+    "aurelia-bootstrapper-meteor": "^1.0.0-rc.1.0.0",
+    "aurelia-event-aggregator": "^1.0.0-rc.1.0.0",
+    "aurelia-framework": "^1.0.0-rc.1.0.0",
+    "aurelia-history-browser": "^1.0.0-rc.1.0.0",
+    "aurelia-logging-console": "^1.0.0-rc.1.0.0",
+    "aurelia-router": "^1.0.0-rc.1.0.0",
+    "aurelia-templating-binding": "^1.0.0-rc.1.0.0",
+    "aurelia-templating-resources": "^1.0.0-rc.1.0.0",
+    "aurelia-templating-router": "^1.0.0-rc.1.0.0",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "meteor-node-stubs": "~0.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.10.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "ncp": "^2.0.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"globals": {
+		"Meteor": true,
+		"Mongo": true
+	},
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": "eslint:recommended",
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-unused-vars": [
+			"warn"
+		]
+	}
+}
