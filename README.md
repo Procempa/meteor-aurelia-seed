@@ -13,7 +13,7 @@ com front-end `aurelia`.
 ### Instalação:
 
 ```
-git clone https://github.com/Procempa/meteor-aurelia-seed
+$ git clone https://github.com/Procempa/meteor-aurelia-seed
 
 $ cd meteor-aurelia-seed
 
