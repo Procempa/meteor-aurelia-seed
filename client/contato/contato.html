@@ -1,0 +1,57 @@
+<template>
+	<form submit.delegate="submit()" class="form-inline">
+		<div class="panel panel-default">
+			<div class="panel-heading">Inclusão de Contato</div>
+			<div class="panel-body">
+
+				<div class="form-group ${erros.nome ? 'has-error' : '' }">
+					<label for="nome">Nome:&nbsp;</label>
+					<input id="nome" class="form-control" value.bind="contato.nome" autofocus="true">
+					<p class="help-block" repeat.for="erro of erros.nome" if.bind="erros.nome">
+						<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+						${erro}
+					</p>
+				</div>
+				<div class="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+				<div class="form-group">
+					<label for="tiposFone">Tipo:&nbsp;</label>
+					<select id="tiposFone" class="form-control" value.bind="contato.tipoFone">
+						<option repeat.for="tipo of tiposFone" model.bind="tipo.value" selected="${tipo.key === contato.tipoFone}">${tipo.key}</option>
+					</select>
+				</div>
+				<div class="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+				<div class="form-group ${erros.fone ? 'has-error' : '' }">
+					<label for="fone">Fone:&nbsp;</label>
+					<input id="fone" class="form-control" value.bind="contato.fone">
+					<p class="help-block" repeat.for="erro of erros.fone" if.bind="erros.fone">
+						<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+						${erro}
+					</p>
+				</div>
+				<div class="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+				<button id="submit" type="submit" class="btn btn-primary right-align">Adicionar</button>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-striped" if.bind="contatos.length > 0">
+		<tr>
+			<th colspan="3"><center><h4>Lista de Contatos</h4></center></th>
+		</tr>
+		<tr>
+			<th>Nome</th><th>Fone</th><th>Ações</th>
+		</tr>
+		<tr repeat.for="contato of contatos">
+			<td>${contato.nome}</td>
+			<td>${contato.fone} (${contato.tipoFone})</td>
+			<td>
+				<button type="button" class="btn btn-danger" click.trigger="remover(contato)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-danger" click.trigger="editar(contato)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+			</td>
+		</tr>
+	</table>
+
+</template>
