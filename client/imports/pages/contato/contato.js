@@ -1,3 +1,6 @@
+import './contato.html';
+import { Meteor } from 'meteor/meteor';
+import Contatos from '/imports/collections/contatos';
 import validate from 'validate.js';
 
 const _REGRAS_VALIDACAO_CONTATO = {
@@ -35,40 +38,38 @@ export class Contato {
 		this.tiposFone.push({ key: "Residencial", value: 'res' });
 		this.tiposFone.push({ key: "Celular", value: 'cel' });
 
-    Meteor.subscribe("contatos", () => {
-    	Contatos
-    		.find()
-    		.observe({
-    			added: contato => {
+		Meteor.subscribe("contatos", () => {
+			Contatos
+				.find()
+				.observe({
+					added: contato => {
 						this.contatos.push(contato)
 					},
-    			changed: contato => {
-    				let index = this.contatos.findIndex(c => c._id === contato._id);
-    				this.contatos.splice(index, 1, contato);
-    			},
-    			removed: contato => {
+					changed: contato => {
 						let index = this.contatos.findIndex(c => c._id === contato._id);
-    				this.contatos.splice(index, 1);
-    			}
-    		});
-    });
+						this.contatos.splice(index, 1, contato);
+					},
+					removed: contato => {
+						let index = this.contatos.findIndex(c => c._id === contato._id);
+						this.contatos.splice(index, 1);
+					}
+				});
+		});
 	}
 
 	submit() {
 		var erros = validate(this.contato, _REGRAS_VALIDACAO_CONTATO);
 		if (erros) {
 			this.erros = erros;
-		}
-		else {
+		} else {
 			this.erros = undefined;
 			if (this.contato._id) {
-				Contatos.update(this.contato._id, {$set: {'nome': this.contato.nome, 'fone': this.contato.fone, 'tipoFone': this.contato.tipoFone}});
-			}
-			else {
+				Contatos.update(this.contato._id, { $set: { 'nome': this.contato.nome, 'fone': this.contato.fone, 'tipoFone': this.contato.tipoFone } });
+			} else {
 				Contatos.insert(this.contato);
 			}
 			this.contato = new ContatoNovo();
-			document.getElementById('submit').innerHTML="Adicionar";
+			document.getElementById('submit').innerHTML = "Adicionar";
 		}
 	}
 
@@ -77,7 +78,7 @@ export class Contato {
 	}
 
 	editar(contato) {
-		document.getElementById('submit').innerHTML="Atualizar";
+		document.getElementById('submit').innerHTML = "Atualizar";
 		this.contato = contato;
 	}
 }
@@ -85,7 +86,7 @@ export class Contato {
 class ContatoNovo {
 	constructor() {
 		this.nome = "",
-		this.fone = "",
-		this.tipoFone = "cel"
+			this.fone = "",
+			this.tipoFone = "cel"
 	}
 }

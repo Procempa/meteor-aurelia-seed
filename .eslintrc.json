@@ -1,8 +1,4 @@
 {
-	"globals": {
-		"Meteor": true,
-		"Mongo": true
-	},
 	"env": {
 		"browser": true,
 		"es6": true

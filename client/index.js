@@ -1,8 +1,11 @@
+//Client startup
+
 import "bootstrap";
 import "aurelia-polyfills";
 import aureliaBootstrapper from "aurelia-bootstrapper-meteor";
 import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
+import '/client/imports/main';
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.logLevel.error);
@@ -20,31 +23,5 @@ aureliaBootstrapper
 			;
 		aurelia
 			.start()
-			.then(() => aurelia.setRoot("client/app", document.body));
+			.then(() => aurelia.setRoot("client/imports/main", document.body));
 	});
-
-export class App {
-	configureRouter(config, router) {
-		config.title = "Meteor Aurelia Seed";
-		config.map([{
-			route: ["", "exemplo1"],
-			name: "exemplo1",
-			moduleId: "./paginaExemplo1/exemplo1",
-			nav: true,
-			title: "Exemplo 1"
-		}, {
-			route: "exemplo2",
-			name: "exemplo2",
-			moduleId: "./paginaExemplo2/exemplo2",
-			nav: true,
-			title: "Exemplo 2"
-		}, {
-			route: "contato",
-			name: "contato",
-			moduleId: "./contato/contato",
-			nav: true,
-			title: "Contatos"
-		}]);
-		this.router = router;
-	}
-}

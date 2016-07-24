@@ -1,6 +1,7 @@
+import { Mongo } from 'meteor/mongo';
 import moment from 'moment';
 
-Contatos = new Mongo.Collection('contato');
+let Contatos = new Mongo.Collection('contatos');
 
 Contatos.allow({
   insert: function(userId, document){
@@ -9,8 +10,7 @@ Contatos.allow({
     return true;
   },
   update: function(userId, doc, fieldNames, modifier){
-    console.log(JSON.stringify(doc, null, "  "));
-    set = (modifier.$set) ? modifier.$set : modifier.$unset;
+    let set = (modifier.$set) ? modifier.$set : modifier.$unset;
     set.updateAt = moment().toDate();
     return true;
   },
@@ -18,3 +18,5 @@ Contatos.allow({
     return true;
   }
 });
+
+export default Contatos;
