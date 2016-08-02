@@ -1,12 +1,3 @@
-import './main.html';
-import './styles/bootstrap.less';
-import './styles/font-awesome.scss';
-
-//modules
-import './pages/paginaExemplo1/exemplo1';
-import './pages/paginaExemplo2/exemplo2';
-import './pages/contato/contato';
-
 export class App {
 	configureRouter(config, router) {
 		config.title = "Meteor Aurelia Seed";

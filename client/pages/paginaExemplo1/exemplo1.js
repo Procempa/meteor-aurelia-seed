@@ -1,5 +1,3 @@
-import './exemplo1.html';
-
 export class Exemplo1 {
 	exemploSelectData = [
 		{ key: "Test 1", value: 1 },

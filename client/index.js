@@ -1,11 +1,13 @@
 //Client startup
 
-import "bootstrap";
 import "aurelia-polyfills";
 import aureliaBootstrapper from "aurelia-bootstrapper-meteor";
-import {LogManager} from 'aurelia-framework';
-import {ConsoleAppender} from 'aurelia-logging-console';
-import '/client/imports/main';
+import { LogManager } from 'aurelia-framework';
+import { ConsoleAppender } from 'aurelia-logging-console';
+
+import "bootstrap";
+import 'bootstrap/less/bootstrap.less';
+import 'font-awesome/scss/font-awesome.scss';
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.logLevel.error);
@@ -20,8 +22,8 @@ aureliaBootstrapper
 			)
 			.standardConfiguration()
 			// .developmentLogging()
-			;
+		;
 		aurelia
 			.start()
-			.then(() => aurelia.setRoot("client/imports/main", document.body));
+			.then(() => aurelia.setRoot("client/main", document.body));
 	});

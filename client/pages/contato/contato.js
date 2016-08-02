@@ -1,6 +1,5 @@
-import './contato.html';
 import { Meteor } from 'meteor/meteor';
-import Contatos from '/imports/collections/contatos';
+import Contatos from '/client&server/collections/contatos';
 import validate from 'validate.js';
 
 const _REGRAS_VALIDACAO_CONTATO = {

@@ -1,5 +1,3 @@
-import './exemplo2.html';
-
 export class Exemplo2 {
 	exemploTableData = [
 		{ col1: "Test 1", col2: 1, col3: "Test 3", col4: 4 },
