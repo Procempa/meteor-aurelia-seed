@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "aurelia-bootstrapper-meteor": "^1.0.0-rc.1.0.0",
+    "aurelia-dialog": "^1.0.0-beta.3.0.0",
     "aurelia-event-aggregator": "^1.0.0",
     "aurelia-framework": "^1.0.0",
     "aurelia-history-browser": "^1.0.0",

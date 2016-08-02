@@ -1,13 +1,7 @@
 //Client startup
-
-import "aurelia-polyfills";
 import aureliaBootstrapper from "aurelia-bootstrapper-meteor";
-import { LogManager } from 'aurelia-framework';
-import { ConsoleAppender } from 'aurelia-logging-console';
-
-import "bootstrap";
-import 'bootstrap/less/bootstrap.less';
-import 'font-awesome/scss/font-awesome.scss';
+import {LogManager} from 'aurelia-framework';
+import {ConsoleAppender} from 'aurelia-logging-console';
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.logLevel.error);
@@ -21,8 +15,9 @@ aureliaBootstrapper
 				// filtros conversores ex.: "client/_resources/converters/date"
 			)
 			.standardConfiguration()
+			.plugin('aurelia-dialog')
 			// .developmentLogging()
-		;
+			;
 		aurelia
 			.start()
 			.then(() => aurelia.setRoot("client/main", document.body));

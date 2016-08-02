@@ -1,0 +1,45 @@
+<<<<<<< Updated upstream:client/pages/paginaExemplo1/exemplo1.js
+||||||| merged common ancestors
+import './exemplo1.html';
+
+=======
+import { inject } from 'aurelia-framework';
+import './modal';
+import { DialogService } from 'aurelia-dialog';
+import './exemplo1.html';
+
+@inject(DialogService)
+>>>>>>> Stashed changes:client/imports/pages/paginaExemplo1/exemplo1.js
+export class Exemplo1 {
+    exemploSelectData = [
+        { key: "Test 1", value: 1 },
+        { key: "Test 2", value: 2 },
+        { key: "Test 3", value: 3 }
+    ];
+
+    constructor(dialogService) {
+        this.dialogService = dialogService;
+    }
+
+    submit() {
+        alert(`
+input exemplo 1: ${this.inputExemplo1}
+input exemplo 2: ${this.inputExemplo2}
+select exemplo value: ${this.selectExemplo}
+			`)
+    }
+
+    person = { firstName: 'Wade', middleName: 'Owen', lastName: 'Watts' };
+
+    openPopUp() {
+
+        this.dialogService.open({ viewModel: '/client/imports/pages/paginaExemplo1/modal' , model: this.person }).then(response => {
+            if (!response.wasCancelled) {
+                console.log('good - ', response.output);
+            } else {
+                console.log('bad');
+            }
+            console.log(response.output);
+        });
+    }
+}
