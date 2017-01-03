@@ -1,16 +1,15 @@
 Meteor-Aurelia-Seed
 =============================================
 
-Embrião base para desenvolvimento de aplicações utilizando a plataforma `meteor`
-com front-end `aurelia`.
+Base seed for developing applications using `meteor` platform and `aurelia` front-end.
 
 
-### Dependencias:	meteor
+### Dependencies:	meteor
 
 `curl https://install.meteor.com/ | sh`
 
 
-### Instalação:
+### Instalation:
 
 ```
 $ git clone https://github.com/Procempa/meteor-aurelia-seed
@@ -22,8 +21,8 @@ $ meteor npm install
 $ meteor
 ```
 
-Nota:
+Note:
 ---------------------------------------------
 
-Contém uma estrutura base com exemplo de formulário
- e barra de navegação com classes `bootstrap` e `font-awesome`
+Contains a base structure with a form example
+ and navigation bar with `bootstrap` e `font-awesome` classes
